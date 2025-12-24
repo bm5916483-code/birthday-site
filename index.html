@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sarah 🎉</title>
+    <meta name="description" content="A special birthday celebration">
+    <meta name="theme-color" content="#e879a6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #e879a6;
+            --primary-rgb: 232, 121, 166;
+            --secondary: #f5d4a0;
+            --secondary-rgb: 245, 212, 160;
+            --accent: #fff8e1;
+            --accent-rgb: 255, 248, 225;
+            --foreground: #2d2d2d;
+            --background: #fefcf9;
+            --card: #ffffff;
+            --border: #f0e9e4;
+            --muted-foreground: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 2s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 3s linear infinite;
+        }
+
+        .animate-confetti {
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            top: -10px;
+            opacity: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .photo-card {
+            aspect-ratio: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .countdown-box {
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.1));
+        }
+
+        /* Responsive styles */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Background -->
+    <div id="confetti-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></div>
+
+    <main class="relative min-h-screen overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center px-4 py-20">
+            <!-- Gradient background -->
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.2), rgba(var(--accent-rgb), 0.1));"></div>
+
+            <!-- Animated balloons -->
+            <div class="absolute top-20 left-10 text-6xl animate-float" style="animation-delay: 0s;">🎈</div>
+            <div class="absolute top-40 right-20 text-5xl animate-float" style="animation-delay: 1s;">🎈</div>
+            <div class="absolute bottom-32 left-1/4 text-7xl animate-float" style="animation-delay: 2s;">🎈</div>
+
+            <!-- Main content -->
+            <div class="relative z-10 text-center space-y-8 max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border-2" style="border-color: var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <span style="color: var(--primary);">✨</span>
+                    <span class="text-sm font-medium" style="color: var(--muted-foreground);">It's a special day!</span>
+                </div>
+
+                <h1 class="hero-title font-playfair font-bold" style="font-size: 6rem; line-height: 1.1;">
+                    <span class="block gradient-text animate-pulse-slow">Happy Birthday</span>
+                    <span class="block text-5xl mt-4">🎉</span>
+                </h1>
+
+                <div class="space-y-4">
+                    <p id="name-display" class="hero-subtitle font-playfair font-semibold" style="font-size: 3.5rem; color: var(--foreground);">Sarah</p>
+                    <p class="text-xl max-w-2xl mx-auto leading-relaxed" style="color: var(--muted-foreground);">Today is all about celebrating you and the joy you bring to everyone around you</p>
+                </div>
+
+                <div class="flex items-center justify-center gap-4 text-4xl pt-8">
+                    <span class="animate-bounce-slow" style="animation-delay: 0s;">🎂</span>
+                    <span class="animate-bounce-slow" style="animation-delay: 0.1s;">🎁</span>
+                    <span class="animate-bounce-slow" style="animation-delay: 0.2s;">🎊</span>
+                    <span class="animate-bounce-slow" style="animation-delay: 0.3s;">🎉</span>
+                    <span class="animate-bounce-slow" style="animation-delay: 0.4s;">✨</span>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
+                <div class="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2" style="border-color: rgba(var(--foreground-rgb), 0.2);">
+                    <div class="w-1.5 h-1.5 rounded-full" style="background: rgba(var(--foreground-rgb), 0.4);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="relative py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-5xl font-bold font-playfair">Precious Memories</h2>
+                    <p class="text-xl max-w-2xl mx-auto leading-relaxed" style="color: var(--muted-foreground);">Celebrating all the beautiful moments we've shared together</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card photo-card">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop" alt="Birthday celebration" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t opacity-0 hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), transparent);"></div>
+                    </div>
+                    <div class="card photo-card">
+                        <img src="https://images.unsplash.com/photo-1464347744102-11db6282f854?w=400&h=400&fit=crop" alt="Celebration moment" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t opacity-0 hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), transparent);"></div>
+                    </div>
+                    <div class="card photo-card">
+                        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&h=400&fit=crop" alt="Birthday cake" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t opacity-0 hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), transparent);"></div>
+                    </div>
+                    <div class="card photo-card">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&h=400&fit=crop" alt="Birthday gifts" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t opacity-0 hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), transparent);"></div>
+                    </div>
+                    <div class="card photo-card">
+                        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=400&fit=crop" alt="Fun moments" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t opacity-0 hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), transparent);"></div>
+                    </div>
+                    <div class="card photo-card">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=400&fit=crop" alt="Party atmosphere" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t opacity-0 hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), transparent);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="relative py-20 px-4" style="background: linear-gradient(to bottom, transparent, rgba(var(--primary-rgb), 0.05), transparent);">
+            <div class="max-w-4xl mx-auto">
+                <div class="card p-8 sm:p-12 md:p-16 space-y-8" style="background: rgba(var(--card), 0.95); backdrop-filter: blur(10px); box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+                    <!-- Decorative elements -->
+                    <div class="flex items-center justify-center gap-4" style="color: var(--primary);">
+                        <svg class="w-8 h-8 fill-current animate-pulse-slow" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <svg class="w-10 h-10 animate-spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg class="w-8 h-8 fill-current animate-pulse-slow" style="animation-delay: 0.5s;" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+
+                    <div class="space-y-6 text-center">
+                        <h2 class="text-4xl font-bold font-playfair">A Message From the Heart</h2>
+
+                        <div class="space-y-6 text-lg leading-relaxed" style="color: rgba(var(--foreground-rgb), 0.9);">
+                            <p>On this special day, I want you to know how truly amazing you are. Your kindness, laughter, and beautiful spirit light up every room you enter.</p>
+                            <p>Thank you for being such an incredible friend and for all the wonderful memories we've created together. Your presence in my life is a gift I treasure every single day.</p>
+                            <p class="font-semibold" style="color: var(--primary);">May this year bring you endless joy, unforgettable adventures, and all the happiness your heart can hold. You deserve nothing but the very best!</p>
+                            <p class="italic">Here's to another year of being absolutely wonderful. Happy Birthday! 🎉</p>
+                        </div>
+                    </div>
+
+                    <!-- Decorative stars -->
+                    <div class="flex items-center justify-center gap-3 pt-4">
+                        <svg class="w-5 h-5 fill-current animate-pulse-slow" style="color: var(--secondary); animation-delay: 0s;" viewBox="0 0 24 24">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current animate-pulse-slow" style="color: var(--secondary); animation-delay: 0.2s;" viewBox="0 0 24 24">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current animate-pulse-slow" style="color: var(--secondary); animation-delay: 0.4s;" viewBox="0 0 24 24">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current animate-pulse-slow" style="color: var(--secondary); animation-delay: 0.6s;" viewBox="0 0 24 24">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg class="w-5 h-5 fill-current animate-pulse-slow" style="color: var(--secondary); animation-delay: 0.8s;" viewBox="0 0 24 24">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="relative py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full" style="background: rgba(var(--primary-rgb), 0.1);">
+                        <svg class="w-5 h-5" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="text-sm font-medium" style="color: var(--primary);">Special Date</span>
+                    </div>
+
+                    <h2 class="text-4xl font-bold font-playfair">Next Year's Celebration</h2>
+                    <p class="text-lg" style="color: var(--muted-foreground);">Counting down to another amazing birthday!</p>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="card p-6 sm:p-8 text-center space-y-2">
+                        <div id="days" class="text-5xl font-bold font-mono gradient-text">00</div>
+                        <div class="text-sm font-medium uppercase tracking-wider" style="color: var(--muted-foreground);">Days</div>
+                    </div>
+                    <div class="card p-6 sm:p-8 text-center space-y-2">
+                        <div id="hours" class="text-5xl font-bold font-mono gradient-text">00</div>
+                        <div class="text-sm font-medium uppercase tracking-wider" style="color: var(--muted-foreground);">Hours</div>
+                    </div>
+                    <div class="card p-6 sm:p-8 text-center space-y-2">
+                        <div id="minutes" class="text-5xl font-bold font-mono gradient-text">00</div>
+                        <div class="text-sm font-medium uppercase tracking-wider" style="color: var(--muted-foreground);">Minutes</div>
+                    </div>
+                    <div class="card p-6 sm:p-8 text-center space-y-2">
+                        <div id="seconds" class="text-5xl font-bold font-mono gradient-text">00</div>
+                        <div class="text-sm font-medium uppercase tracking-wider" style="color: var(--muted-foreground);">Seconds</div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <div class="inline-block card p-6 flex items-center gap-3" style="background: linear-gradient(to right, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.1), rgba(var(--accent-rgb), 0.1));">
+                        <svg class="w-6 h-6 animate-spin-slow" style="color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <p class="text-lg font-medium">Let's make every moment count until then! 🎊</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="relative py-12 px-4 border-t" style="border-color: var(--border); background: linear-gradient(to bottom, transparent, rgba(var(--primary-rgb), 0.05));">
+            <div class="max-w-4xl mx-auto text-center space-y-6">
+                <div class="flex items-center justify-center gap-2">
+                    <svg class="w-6 h-6 fill-current animate-pulse-slow" style="color: var(--primary);" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+
+                <p class="text-2xl font-medium">Made with love ❤️</p>
+
+                <p class="text-base" style="color: var(--muted-foreground);">Wishing you a day filled with love, laughter, and unforgettable memories</p>
+
+                <div class="flex items-center justify-center gap-3 text-2xl pt-4">
+                    <span class="animate-bounce-slow" style="animation-delay: 0s;">🎈</span>
+                    <span class="animate-bounce-slow" style="animation-delay: 0.2s;">🎉</span>
+                    <span class="animate-bounce-slow" style="animation-delay: 0.4s;">🎊</span>
+                </div>
+
+                <div class="pt-6 text-xs" style="color: var(--muted-foreground);">
+                    <span id="current-year"></span> • A celebration to remember
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Countdown timer
+        function updateCountdown() {
+            const nextBirthday = new Date();
+            nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+            nextBirthday.setMonth(11); // December (0-indexed)
+            nextBirthday.setDate(25);
+            nextBirthday.setHours(0, 0, 0, 0);
+
+            const now = new Date().getTime();
+            const distance = nextBirthday.getTime() - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Create confetti effect
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#e879a6', '#f5d4a0', '#fff8e1', '#ff6b9d', '#ffd700'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece animate-confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    confetti.style.animationDuration = Math.random() * 3 + 4 + 's';
+                    confetti.style.opacity = '1';
+                    
+                    container.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 8000);
+                }, i * 100);
+            }
+        }
+
+        // Create confetti on page load
+        createConfetti();
+        // Create more confetti every 10 seconds
+        setInterval(createConfetti, 10000);
+
+        // Smooth scroll for anchor links (if needed in future)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
